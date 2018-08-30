@@ -1,6 +1,4 @@
 #  -*- coding: utf-8 -*-
-__author__ = 'wangzhonghua'
-__date__ = '2018/8/17 13:42'
 
 import json
 import socket
