@@ -5,11 +5,11 @@ __date__ = '2018/8/28 14:37'
 
 import re
 
-from PyQt5.QtWidgets import QPushButton
+from PyQt5.QtWidgets import QPushButton, QLabel
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtCore import QSize
+from PyQt5.QtCore import QSize, Qt
 
-from TicketService.settings import STATIC_ROOT, BASE_DIR
+from TicketService.settings import *
 
 
 # 特殊的样式:pressed-image --> 按下后的背景图片
@@ -33,12 +33,12 @@ def build_button(Button: QPushButton, Style: dict, Coord: tuple=(0, 0)) -> None:
             if k == 'pressed-image':
                 Cell_Sheet = f"border-image:url({Style[k]})"
             else:
-                Cell_Sheet = f"background-color:black"
+                Cell_Sheet = f"background-color:white"
             Pre_Sheet += Cell_Sheet + ";"
 
         else:
             # 大小样式忘传px
-            if k in PX_STYLE and not re.search('px', Style[k]):
+            if k in PX_STYLE and not re.search('px', str(Style[k])):
                 Cell_Sheet = f"{k}:{Style[k]}px"
             else:
                 if k in PATH_STYLE:
@@ -65,7 +65,23 @@ def build_button(Button: QPushButton, Style: dict, Coord: tuple=(0, 0)) -> None:
     Button.setGeometry(Coord[0], Coord[1], Width, Height)
 
 
+def build_label(Label: QLabel, Style: dict):
+    Sheet = ''
+    for k, v in Style.items():
+        if k in PX_STYLE:
+            Cell_Sheet = f"{k}:{Style[k]}px"
+        else:
+            Cell_Sheet = f"{k}:{Style[k]}"
+        Sheet += Cell_Sheet + ';'
+
+    Label.setStyleSheet(Sheet)
+    Label.setAlignment(Qt.AlignCenter)
+
+
 if __name__ == '__main__':
-    import re
     a = re.search('px', '24')
     print(a)
+
+    # build_label(TEST_BUTTON_STYLE)
+
+

@@ -15,6 +15,6 @@ class DefaultViewMiXin():
         # 窗口透明
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         if DEBUG:
-            self.setGeometry(280, 80, 800, 600)
+            self.setGeometry(30, 30, 1300, 700)
         else:
             self.showFullScreen()

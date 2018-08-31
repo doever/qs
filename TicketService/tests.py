@@ -47,6 +47,18 @@ class TestBuildButtonStyle(QWidget):
         self.setup_ui()
         self.Button = QPushButton('业务1', self)
         build_button(Button=self.Button, Style=TEST_BUTTON_STYLE, Coord=(150, 150))
+        self.Label = QLabel(self)
+        self.Label.setText('测试业务')
+        self.Label.setStyleSheet('''
+                                font-size:20px;
+                                color:red;
+                                background-color:blue;
+                                width:200px;
+                                height:200px;
+                                ''')
+        self.Label.setFixedWidth(300)
+        self.Label.move(0,0)
+        # self.Label.setGeometry(0 ,0, 150, 150)
 
     def setup_ui(self):
         '''初始化界面'''

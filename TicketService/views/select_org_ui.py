@@ -12,6 +12,8 @@ from TicketService.utils.build_style import *
 from TicketService.settings import *
 from TicketService.views.base_ui import DefaultViewMiXin
 
+from TicketService.models.org_data import Org_Data
+
 
 class SelectOrgView(QWidget, DefaultViewMiXin):
     '''多机构选择界面'''
@@ -39,32 +41,32 @@ class SelectOrgView(QWidget, DefaultViewMiXin):
 
 
 if __name__ == '__main__':
-    Org = []
-
-    a = {"org_id": 1,
-         "org_name": "测试机构一",
-         "org_style": {
-             "font-size": "24",
-             "color": "red",
-             "border-image": "../static/images/order_button.png",
-            }
-         }
-
-    b = {"org_id": 2,
-         "org_name": "测试机构二",
-         "org_style": {
-             "font-size": "24",
-             "color": "red",
-             "background-color": "blue",
-             "pressed-color": "black",
-             # "border-image": "../static/images/order_button.png",
-            }
-         }
-    # Org.append(a)
-    for i in range(8):
-        Org.append(b)
+    # Org = []
+    #
+    # a = {"org_id": 1,
+    #      "org_name": "测试机构一",
+    #      "org_style": {
+    #          "font-size": "24",
+    #          "color": "red",
+    #          "border-image": "../static/images/order_button.png",
+    #         }
+    #      }
+    #
+    # b = {"org_id": 2,
+    #      "org_name": "测试机构二",
+    #      "org_style": {
+    #          "font-size": "24",
+    #          "color": "red",
+    #          "background-color": "blue",
+    #          "pressed-color": "black",
+    #          # "border-image": "../static/images/order_button.png",
+    #         }
+    #      }
+    # # Org.append(a)
+    # for i in range(8):
+    #     Org.append(b)
 
     App = QApplication(sys.argv)
-    Vi = SelectOrgView(Org)
+    Vi = SelectOrgView(Org_Data.Org_Ui_List)
     Vi.show()
     sys.exit(App.exec_())
