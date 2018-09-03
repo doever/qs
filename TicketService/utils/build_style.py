@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
-__author__ = 'doever'
-__date__ = '2018/8/28 14:37'
 
 import re
 
@@ -33,7 +31,7 @@ def build_button(Button: QPushButton, Style: dict, Coord: tuple=(0, 0)) -> None:
             if k == 'pressed-image':
                 Cell_Sheet = f"border-image:url({Style[k]})"
             else:
-                Cell_Sheet = f"background-color:white"
+                Cell_Sheet = f"background-color:black"
             Pre_Sheet += Cell_Sheet + ";"
 
         else:

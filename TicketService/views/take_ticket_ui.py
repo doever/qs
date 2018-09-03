@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
-__author__ = 'doever'
-__date__ = '2018/8/30 10:14'
 
 import re
 import sys
@@ -13,16 +11,6 @@ from PyQt5.QtCore import QCoreApplication, Qt
 from TicketService.utils.build_style import build_button, build_label
 from TicketService.settings import *
 from TicketService.views.base_ui import DefaultViewMiXin
-
-PAGE_BUTTON_STYLE = {
-                        "border-image": "../static/images/PageDown.png",
-                        "pressed-color": "white"
-                    }
-
-BACK_BUTTON_STYLE = {
-                        "border-image": "../static/images/back.png",
-                        "pressed-color": "white"
-                    }
 
 
 class TakeTicketView(QWidget, DefaultViewMiXin):

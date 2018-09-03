@@ -8,8 +8,8 @@ import queue
 import threading
 import time
 
-from config_related import ConfigMixin
-from network import Network
+from EvaluateService.config_related import ConfigMixin
+from EvaluateService.network import Network
 
 
 SOCKET_RECEIVE_SIZE = 512
@@ -115,28 +115,6 @@ class EvaluateConfig(ConfigMixin):
             # Map = {**Map, **Item}
             Map[Window_Name] = (Evaluate_Ip, Evaluate_Port)
         return Map
-
-    def tips_map_re(self, Data):
-        Filler = ''
-        if Data['type'] in [1, 2, 3, 6]:
-            Filler = Data['ticketNumber']
-        elif Data['type'] in [4, 5, 7, 8]:
-            Filler = Data['windowName']
-        try:
-            Tips_Map = {1: f"叫号:{Filler}",
-                        2: f"开始办理:{Filler}",
-                        3: f"办理结束:{Filler}",
-                        4: f"窗口：{Filler}--> 暂停服务",
-                        5: f"窗口：{Filler}--> 恢复服务",
-                        6: f"更新评价:{Filler}",
-                        7: f"窗口：{Filler} --> 用户登录",
-                        8: f"窗口：{Filler} --> 用户退出",
-                        }
-        except KeyError:
-            print("消息参数错误")
-        else:
-            # Tips = '没有相关消息' if Data['type'] not in Tips_Map.keys() else Tips_Map[Data['type']]
-            return Tips_Map[Data['type']]
 
     def tips_map(self, Data):
         if Data['type'] == 1:

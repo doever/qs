@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
-__author__ = 'doever'
-__date__ = '2018/8/29 10:55'
 
 import os
 import sys
@@ -44,6 +42,16 @@ DEFAULT_ORG_STYLE = {
                         "color": "red",
                         "background-color": "blue",
                         "pressed-color": "black",
+                    }
+
+PAGE_BUTTON_STYLE = {
+                        "border-image": "../static/images/PageDown.png",
+                        "pressed-color": "white"
+                    }
+
+BACK_BUTTON_STYLE = {
+                        "border-image": "../static/images/back.png",
+                        "pressed-color": "white"
                     }
 
 if __name__ == '__main__':

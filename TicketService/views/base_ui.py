@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
-__author__ = 'doever'
-__date__ = '2018/8/30 10:19'
 
 from PyQt5.QtCore import Qt
 from TicketService.settings import DEBUG
