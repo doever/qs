@@ -3,11 +3,11 @@
 
 from TicketService.utils.config_related import RequestsMixin
 from TicketService.utils.utils import singleton
-from TicketService.models.config_data import Back_Config
+from TicketService.models.config_data import Backed_Data
 from TicketService.settings import *
 
 
-@singleton
+# @singleton
 class OrgData(RequestsMixin):
     def __init__(self):
         self.Multiple_Org_Dict = self.get_multiple_org_data()
@@ -16,7 +16,6 @@ class OrgData(RequestsMixin):
     @classmethod
     def get_multiple_org_data(cls) -> dict:
         '''获取多机构的数据'''
-        Backed_Data = Back_Config.get_backed_service()
         Org_Para = ','.join(ORG_LIST)
         Url = f"http://{Backed_Data[0]}:{Backed_Data[1]}/back/{URL_MAP['multiple_org']}/{Org_Para}"
         Multiple_Org_Dict = cls.request(Url=Url, Method='get')
@@ -49,5 +48,5 @@ Org_Data = OrgData()
 if __name__ == '__main__':
     Org = OrgData()
     a = Org.get_multiple_org_data()
-    # print(a)
+    print(a)
 

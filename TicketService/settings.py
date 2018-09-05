@@ -13,8 +13,8 @@ DEBUG = True
 
 
 BACKED_SERVICE_PATH = {
-                        # os.path.join(BASE_DIR, 'lzqs.ini'),
-                        '../lzqs.ini',
+                        # os.path.join(BASE_DIR, 'TicketService', 'lzqs.ini'),
+                        "lzqs.ini",
                         }
 
 TEST_BUTTON_STYLE = {
@@ -24,7 +24,7 @@ TEST_BUTTON_STYLE = {
                         "pressed-image": "../static/images/button_sx.png"
                      }
 
-ORG_LIST = ['1', '2', '3']
+ORG_LIST = ['1', '2', ]
 
 URL_MAP = {
                 "multiple_org": "multiple_org_ticket_service_config",
@@ -57,3 +57,4 @@ BACK_BUTTON_STYLE = {
 if __name__ == '__main__':
     print(BASE_DIR)
     print(STATIC_ROOT)
+    print(BACKED_SERVICE_PATH)

@@ -14,7 +14,10 @@ class Config(ConfigMixin):
         pass
 
     def get_backed_service(self) -> tuple:
+        # BACKED_SERVICE_PATH = {"../lzqs.ini"}
         Data_Dict = self.config_reader(BACKED_SERVICE_PATH)
+        # Data_Dict = Config.read(BACKED_SERVICE_PATH)
+        # # Data_Dict = read.get('lzqs')
         try:
             Data = Data_Dict['lzqs']
         except KeyError:
@@ -27,6 +30,7 @@ class Config(ConfigMixin):
 
 
 Back_Config = Config()
+Backed_Data = Config().get_backed_service()
 
 
 if __name__ == '__main__':
